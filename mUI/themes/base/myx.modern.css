@@ -1,0 +1,256 @@
+﻿/* 全屏背景 */
+/*html
+{
+    background: url(images/bg.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}*/
+/* 禁用Webkit高亮 */
+/*body
+{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}*/
+/* 顶部阴影 */
+body:before
+{
+    /* http://css-tricks.com/snippets/css/top-shadow/ */
+    content: "";
+    position: fixed;
+    top: -10px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    -webkit-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+    -moz-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+    box-shadow: 0px 0px 10px rgba(0,0,0,.8);
+    z-index: 100;
+}
+/* 突出显示文本样式 */
+::selection
+{
+    background-color: #b3d4fc;
+    text-shadow: none;
+}
+::-moz-selection
+{
+    background: #b3d4fc;
+    text-shadow: none;
+}
+::-webkit-selection
+{
+    background-color: #b3d4fc;
+    text-shadow: none;
+}
+/* 占位符文本样式 */
+::-webkit-input-placeholder
+{
+    color: #ccc;
+    font-style: italic;
+}
+/* mozilla */  
+input:-moz-placeholder, textarea:-moz-placeholder {  
+    color:#CCC;  
+    font-style:italic;  
+}
+a[rel~="external"], a[href^="http://"]
+{
+    padding-right: 16px;
+    background: transparent url("../blue/images/link_external.png") 99% 40% no-repeat;
+}
+a[href], input[type='submit'], input[type='button'], input[type='image']
+{
+    cursor: pointer;
+}
+a[title]:hover:after
+{
+    content: attr(title);
+    padding: 4px 8px;
+    color: #333;
+    position: absolute;
+    left: 0;
+    top: 150%;
+    white-space: nowrap;
+    z-index: 20px;
+    -moz-border-radius: 5px; /* Firefox 2-3.6 */
+    -webkit-border-radius: 5px; /* Chrome 4 */
+    border-radius: 5px;
+    -moz-box-shadow: 0px 0px 4px #222;   /* Firefox 3.5, 3.6 */
+    -webkit-box-shadow: 0px 0px 4px #222; /* Chrome 4-9 */
+    box-shadow: 0px 0px 4px #222;
+    background: #eee;
+    background: -webkit-gradient(linear,left top, left bottom, from(#eeeeee),to(#cccccc));/* Safari 4-5, Chrome 1-9 */
+    background: -webkit-linear-gradient(top, #eeeeee, #cccccc);/* Safari 5.1+, Chrome 10+ */
+    background: -moz-linear-gradient(top,  #eeeeee,  #cccccc);/* Firefox 3.6+ */
+    background: -o-linear-gradient(top, #eeeeee, #cccccc);/* Opera11+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00adee', endColorstr='#cccccc'); /* IE */
+}
+.trans{
+	-webkit-transition:all 0.3s;
+	   -moz-transition:all 0.3s;
+	    -ms-transition:all 0.3s;
+	     -o-transition:all 0.3s;	
+	        transition:all 0.3s;
+}
+.boxInset
+{
+    -moz-box-shadow: inset 1px 0 2px #000;
+    -webkit-box-shadow: inset 1px 0 2px #000;
+    box-shadow: inset 1px 0 2px #000;
+}
+.textShadow {
+    text-shadow: 0px 1px 1px #cccccc; /* CSS3-compatible browsers */  
+    filter: dropshadow(color=#cccccc, offx=1, offy=1) /* IE */  
+}
+/*Works in IE 5.5+, Firefox 3.6+, Safari4, Chrome 3+*/
+.blue-gradient {
+    background: -webkit-gradient(linear,left top, left bottom, from(#00adee),to(#0078a5));/* Safari 4-5, Chrome 1-9 */
+    background: -webkit-linear-gradient(top, #00adee, #0078a5);/* Safari 5.1+, Chrome 10+ */
+    background: -moz-linear-gradient(top, #00adee, #0078a5);/* Firefox 3.6+ */
+    background: -o-linear-gradient(top, #00adee, #0078a5);/* Opera11+ */
+    filter: progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#ff00adee, endColorstr=#ff0078a5); /* IE */  
+}
+/*Works in IE 5.5+, Firefox 3.6+, Safari 3, Chrome 1*/
+.boxShadow {   
+    -moz-box-shadow: 2px 2px 2px #888;   
+    -webkit-box-shadow: 2px 2px 2px #888;   
+    filter: progid:DXImageTransform.Microsoft.Shadow(color=#888888,direction=125,strength=2);
+}
+/* opacity */
+.op30 
+{ 
+    opacity: 0.3;
+    -khtml-opacity: 0.3; /* khtml, old safari */
+    -moz-opacity: 0.3; /* old mozilla, netscape */
+    filter: alpha(opacity=30); /* IE */
+    zoom:1; /* 触发hasLayout */
+}
+.op50 
+{
+    opacity: 0.5;-khtml-opacity: 0.5;-moz-opacity: 0.5;filter: alpha(opacity=50); 
+    zoom:1;
+}
+.op70 
+{
+    opacity: 0.7;-khtml-opacity: 0.7;-moz-opacity: 0.7;filter: alpha(opacity=70);         zoom:1;
+}
+/* normalize */
+/**
+ * Correct text resizing oddly in IE 6/7 when body `font-size` is set using
+ *    `em` units.
+ * Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+html {
+    -webkit-text-size-adjust: 100%; 
+    -ms-text-size-adjust: 100%; 
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+    display: block;
+}
+audio,
+canvas,
+video {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+audio:not([controls]) {
+    display: none;
+    height: 0;
+}
+/**
+ * Address styling not present in IE 7/8/9, Firefox 3, and Safari 4.
+ * Known issue: no IE 6 support.
+ */
+[hidden] {
+    display: none;
+}
+button[disabled], input[disabled] {
+    cursor: default;
+}
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Chrome, Safari 5+, and IE 6+.
+ * Correct `select` style inheritance in Firefox 4+ and Opera.
+ */
+button,
+select {
+    text-transform: none;
+}
+input[type=text], textarea
+{
+    outline: none;
+    margin: 5px 1px 3px 0px;
+    padding: 3px 0px 3px 3px;
+    border: 1px solid #aaa;
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    /* myx: 避免IE,Firefox和Opera下input[type=text]和textarea背景继承系统颜色设置 */
+    background: #fff;
+}
+input[type=text]:focus, textarea:focus
+{
+    margin: 5px 1px 3px 0px;
+    padding: 3px 0px 3px 3px;
+    border: 1px solid rgba(81, 203, 238, 1);
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+}
+/* boilerplate */
+/* Hide only visually, but have it available for screenreaders: h5bp.com/v */
+.visuallyhidden
+{
+    border: 0;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    position: absolute;
+    clip: rect(0 0 0 0);
+}
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+.clearfix:after {
+    clear: both;
+}
+/* 大小不定元素垂直居中 */
+.div-vm{ border: 1px solid red; display: table-cell; vertical-align: middle; }
