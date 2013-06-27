@@ -59,6 +59,46 @@ input:-moz-placeholder, textarea:-moz-placeholder {
     color:#CCC;  
     font-style:italic;  
 }
+input[type=name],
+input[type=email],
+input[type=password],
+input[type=text], 
+textarea
+{
+    outline: none;
+    margin: 5px 1px 3px 0px;
+    padding: 3px 0px 3px 3px;
+    border: 1px solid #bbb;
+	border-radius: 3px;
+	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    -webkit-transition: all 0.10s ease-in-out;
+    -moz-transition: all 0.10s ease-in-out;
+    -ms-transition: all 0.10s ease-in-out;
+    -o-transition: all 0.10s ease-in-out;
+    /* myx: 避免IE,Firefox和Opera下input[type=text]和textarea背景继承系统颜色设置 */
+    background: #fff;
+}
+input[type=name]:hover,
+input[type=email]:hover,
+input[type=password]:hover,
+input[type=text]:hover,
+textarea:hover 
+{
+	outline: none;
+	border: 1px solid #666;
+	box-shadow: none;
+}
+input[type=name]:focus,
+input[type=email]:focus,
+input[type=password]:focus,
+input[type=text]:focus,
+textarea:focus
+{
+    margin: 5px 1px 3px 0px;
+    padding: 3px 0px 3px 3px;
+    border: 1px solid rgba(81, 203, 238, 1);
+    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+}
 a[rel~="external"], a[href^="http://"]
 {
     padding-right: 16px;
@@ -67,6 +107,10 @@ a[rel~="external"], a[href^="http://"]
 a[href], input[type='submit'], input[type='button'], input[type='image']
 {
     cursor: pointer;
+}
+a
+{
+    position: relative;
 }
 a[title]:hover:after
 {
@@ -98,13 +142,36 @@ a[title]:hover:after
 	     -o-transition:all 0.3s;	
 	        transition:all 0.3s;
 }
+/*Works in IE 5.5+, Firefox 3.6+, Safari 3, Chrome 1*/
+.boxShadow    
+{
+    /* 
+        第1个长度值用来设置对象的阴影水平偏移值。可以为负值 
+        第2个长度值用来设置对象的阴影垂直偏移值。可以为负值 
+        如果提供了第3个长度值则用来设置对象的阴影模糊值。不允许负值 
+        如果提供了第4个长度值则用来设置对象的阴影外延值。不允许负值 
+        <color>： 设置对象的阴影的颜色。
+        inset： 设置对象的阴影类型为内阴影。该值为空时，则对象的阴影类型为外阴影 
+     */
+    -moz-box-shadow: 2px 2px 2px #888;   
+    -webkit-box-shadow: 2px 2px 2px #888;   
+    filter: progid:DXImageTransform.Microsoft.Shadow(color=#888888,direction=125,strength=2);
+}
 .boxInset
 {
     -moz-box-shadow: inset 1px 0 2px #000;
     -webkit-box-shadow: inset 1px 0 2px #000;
     box-shadow: inset 1px 0 2px #000;
 }
-.textShadow {
+.textShadow 
+{
+    /*
+        none： 无阴影 
+        <length>①： 第1个长度值用来设置对象的阴影水平偏移值。可以为负值 
+        <length>②： 第2个长度值用来设置对象的阴影垂直偏移值。可以为负值 
+        <length>③： 如果提供了第3个长度值则用来设置对象的阴影模糊值。不允许负值 
+        <color>： 设置对象的阴影的颜色。
+    */
     text-shadow: 0px 1px 1px #cccccc; /* CSS3-compatible browsers */  
     filter: dropshadow(color=#cccccc, offx=1, offy=1) /* IE */  
 }
@@ -115,12 +182,6 @@ a[title]:hover:after
     background: -moz-linear-gradient(top, #00adee, #0078a5);/* Firefox 3.6+ */
     background: -o-linear-gradient(top, #00adee, #0078a5);/* Opera11+ */
     filter: progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#ff00adee, endColorstr=#ff0078a5); /* IE */  
-}
-/*Works in IE 5.5+, Firefox 3.6+, Safari 3, Chrome 1*/
-.boxShadow {   
-    -moz-box-shadow: 2px 2px 2px #888;   
-    -webkit-box-shadow: 2px 2px 2px #888;   
-    filter: progid:DXImageTransform.Microsoft.Shadow(color=#888888,direction=125,strength=2);
 }
 /* opacity */
 .op30 
@@ -133,12 +194,19 @@ a[title]:hover:after
 }
 .op50 
 {
-    opacity: 0.5;-khtml-opacity: 0.5;-moz-opacity: 0.5;filter: alpha(opacity=50); 
+    opacity: 0.5;
+    -khtml-opacity: 0.5;
+    -moz-opacity: 0.5;
+    filter: alpha(opacity=50); 
     zoom:1;
 }
 .op70 
 {
-    opacity: 0.7;-khtml-opacity: 0.7;-moz-opacity: 0.7;filter: alpha(opacity=70);         zoom:1;
+    opacity: 0.7;
+    -khtml-opacity: 0.7;
+    -moz-opacity: 0.7;
+    filter: alpha(opacity=70);         
+    zoom:1;
 }
 /* normalize */
 /**
@@ -199,26 +267,6 @@ button[disabled], input[disabled] {
 button,
 select {
     text-transform: none;
-}
-input[type=text], textarea
-{
-    outline: none;
-    margin: 5px 1px 3px 0px;
-    padding: 3px 0px 3px 3px;
-    border: 1px solid #aaa;
-    -webkit-transition: all 0.30s ease-in-out;
-    -moz-transition: all 0.30s ease-in-out;
-    -ms-transition: all 0.30s ease-in-out;
-    -o-transition: all 0.30s ease-in-out;
-    /* myx: 避免IE,Firefox和Opera下input[type=text]和textarea背景继承系统颜色设置 */
-    background: #fff;
-}
-input[type=text]:focus, textarea:focus
-{
-    margin: 5px 1px 3px 0px;
-    padding: 3px 0px 3px 3px;
-    border: 1px solid rgba(81, 203, 238, 1);
-    box-shadow: 0 0 5px rgba(81, 203, 238, 1);
 }
 /* boilerplate */
 /* Hide only visually, but have it available for screenreaders: h5bp.com/v */

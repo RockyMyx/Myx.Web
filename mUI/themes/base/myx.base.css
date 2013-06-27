@@ -13,7 +13,7 @@ body
     /* http://webdesign.tutsplus.com/articles/typography-articles/taking-ems-even-further/ */
     line-height: 1.4;
 }
-body, input, textarea, select, h1, h2, h3, h4, h5, h6
+body, input, select, textarea, h1, h2, h3, h4, h5, h6
 {
     font-size: 100%; 
     /* http://www.cnblogs.com/ruxpinsp1/archive/2008/06/26/font-in-front-end-development-4.html */
@@ -63,7 +63,7 @@ input, select, img
 {
     vertical-align: middle;
 }
-.input, textarea
+.text, textarea
 {
     /* 避免IE,Firefox和Opera下input[type=text]和textarea背景继承系统颜色设置 */
     background: #fff;
@@ -88,16 +88,20 @@ a:hover
 {
     color: red;
     border-bottom: 1px dashed #619bd5;
-    position: relative;
 }
 a.external
 {
     padding-right: 16px;
     background: transparent url("../blue/images/link_external.png") 99% 40% no-repeat;
 }
-select, button, .button, .pointer
+a, select, button, .button, .pointer
 {
     cursor: pointer;
+}
+.button:hover 
+{
+    color: White;
+    border-bottom: none;
 }
 /* normalize */
 html, .disabled {
