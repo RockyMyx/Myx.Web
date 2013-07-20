@@ -17,10 +17,9 @@
     -ms-user-select: none;
     user-select: none;
 }*/
-/* 顶部阴影 */
-body:before
+/* 顶部阴影 http://css-tricks.com/snippets/css/top-shadow/ */
+/*body:before
 {
-    /* http://css-tricks.com/snippets/css/top-shadow/ */
     content: "";
     position: fixed;
     top: -10px;
@@ -31,7 +30,7 @@ body:before
     -moz-box-shadow: 0px 0px 10px rgba(0,0,0,.8);
     box-shadow: 0px 0px 10px rgba(0,0,0,.8);
     z-index: 100;
-}
+}*/
 /* 突出显示文本样式 */
 ::selection
 {
@@ -54,15 +53,50 @@ body:before
     color: #ccc;
     font-style: italic;
 }
-/* mozilla */  
-input:-moz-placeholder, textarea:-moz-placeholder {  
-    color:#CCC;  
-    font-style:italic;  
+/* http://tjvantoll.com/2013/04/15/list-of-pseudo-elements-to-style-form-controls/ */
+/* 取消textarea右下角可以拖拽的样式 */
+::-webkit-resizer {
+    display: none;
 }
+/* 取消input[type=number]在webkit下的默认样式*/
+::-webkit-textfield-decoration-container { }
+::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+/* 取消input[type=password]在webkit下可以点击显示密码明文的图标*/
+::-ms-reveal {
+	display: none;
+}
+/* 取消input[type=text]在IE10下内容不为空时显示的清除文本图标*/
+::-ms-clear {
+	display: none;
+}
+/* 取消Gecko系浏览器下对按钮设置的默认padding和border */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+/* mozilla */
+input:-moz-placeholder, textarea:-moz-placeholder {
+    color:#CCC;
+    font-style:italic;
+}
+/*tbody tr:nth-of-type(odd)
+{
+    background-color: #E5E5E5;
+}
+tbody tr:hover
+{
+    background-color: #E0ECFF;
+}*/
 input[type=name],
 input[type=email],
 input[type=password],
-input[type=text], 
+input[type=text],
 textarea
 {
     outline: none;
@@ -75,14 +109,14 @@ textarea
     -moz-transition: all 0.10s ease-in-out;
     -ms-transition: all 0.10s ease-in-out;
     -o-transition: all 0.10s ease-in-out;
-    /* myx: 避免IE,Firefox和Opera下input[type=text]和textarea背景继承系统颜色设置 */
+    /* RockyMyx: 避免IE,Firefox和Opera下input[type=text]和textarea背景继承系统颜色设置 */
     background: #fff;
 }
 input[type=name]:hover,
 input[type=email]:hover,
 input[type=password]:hover,
 input[type=text]:hover,
-textarea:hover 
+textarea:hover
 {
 	outline: none;
 	border: 1px solid #666;
@@ -139,22 +173,22 @@ a[title]:hover:after
 	-webkit-transition:all 0.3s;
 	   -moz-transition:all 0.3s;
 	    -ms-transition:all 0.3s;
-	     -o-transition:all 0.3s;	
+	     -o-transition:all 0.3s;
 	        transition:all 0.3s;
 }
 /*Works in IE 5.5+, Firefox 3.6+, Safari 3, Chrome 1*/
-.boxShadow    
+.boxShadow
 {
-    /* 
-        第1个长度值用来设置对象的阴影水平偏移值。可以为负值 
-        第2个长度值用来设置对象的阴影垂直偏移值。可以为负值 
-        如果提供了第3个长度值则用来设置对象的阴影模糊值。不允许负值 
-        如果提供了第4个长度值则用来设置对象的阴影外延值。不允许负值 
+    /*
+        第1个长度值用来设置对象的阴影水平偏移值。可以为负值
+        第2个长度值用来设置对象的阴影垂直偏移值。可以为负值
+        如果提供了第3个长度值则用来设置对象的阴影模糊值。不允许负值
+        如果提供了第4个长度值则用来设置对象的阴影外延值。不允许负值
         <color>： 设置对象的阴影的颜色。
-        inset： 设置对象的阴影类型为内阴影。该值为空时，则对象的阴影类型为外阴影 
+        inset： 设置对象的阴影类型为内阴影。该值为空时，则对象的阴影类型为外阴影
      */
-    -moz-box-shadow: 2px 2px 2px #888;   
-    -webkit-box-shadow: 2px 2px 2px #888;   
+    -moz-box-shadow: 2px 2px 2px #888;
+    -webkit-box-shadow: 2px 2px 2px #888;
     filter: progid:DXImageTransform.Microsoft.Shadow(color=#888888,direction=125,strength=2);
 }
 .boxInset
@@ -163,17 +197,17 @@ a[title]:hover:after
     -webkit-box-shadow: inset 1px 0 2px #000;
     box-shadow: inset 1px 0 2px #000;
 }
-.textShadow 
+.textShadow
 {
     /*
-        none： 无阴影 
-        <length>①： 第1个长度值用来设置对象的阴影水平偏移值。可以为负值 
-        <length>②： 第2个长度值用来设置对象的阴影垂直偏移值。可以为负值 
-        <length>③： 如果提供了第3个长度值则用来设置对象的阴影模糊值。不允许负值 
+        none： 无阴影
+        <length>①： 第1个长度值用来设置对象的阴影水平偏移值。可以为负值
+        <length>②： 第2个长度值用来设置对象的阴影垂直偏移值。可以为负值
+        <length>③： 如果提供了第3个长度值则用来设置对象的阴影模糊值。不允许负值
         <color>： 设置对象的阴影的颜色。
     */
-    text-shadow: 0px 1px 1px #cccccc; /* CSS3-compatible browsers */  
-    filter: dropshadow(color=#cccccc, offx=1, offy=1) /* IE */  
+    text-shadow: 0px 1px 1px #cccccc; /* CSS3-compatible browsers */
+    filter: dropshadow(color=#cccccc, offx=1, offy=1) /* IE */
 }
 /*Works in IE 5.5+, Firefox 3.6+, Safari4, Chrome 3+*/
 .blue-gradient {
@@ -181,31 +215,31 @@ a[title]:hover:after
     background: -webkit-linear-gradient(top, #00adee, #0078a5);/* Safari 5.1+, Chrome 10+ */
     background: -moz-linear-gradient(top, #00adee, #0078a5);/* Firefox 3.6+ */
     background: -o-linear-gradient(top, #00adee, #0078a5);/* Opera11+ */
-    filter: progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#ff00adee, endColorstr=#ff0078a5); /* IE */  
+    filter: progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#ff00adee, endColorstr=#ff0078a5); /* IE */
 }
 /* opacity */
-.op30 
-{ 
+.op30
+{
     opacity: 0.3;
     -khtml-opacity: 0.3; /* khtml, old safari */
     -moz-opacity: 0.3; /* old mozilla, netscape */
     filter: alpha(opacity=30); /* IE */
     zoom:1; /* 触发hasLayout */
 }
-.op50 
+.op50
 {
     opacity: 0.5;
     -khtml-opacity: 0.5;
     -moz-opacity: 0.5;
-    filter: alpha(opacity=50); 
+    filter: alpha(opacity=50);
     zoom:1;
 }
-.op70 
+.op70
 {
     opacity: 0.7;
     -khtml-opacity: 0.7;
     -moz-opacity: 0.7;
-    filter: alpha(opacity=70);         
+    filter: alpha(opacity=70);
     zoom:1;
 }
 /* normalize */
@@ -216,8 +250,8 @@ a[title]:hover:after
  *    user zoom.
  */
 html {
-    -webkit-text-size-adjust: 100%; 
-    -ms-text-size-adjust: 100%; 
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
 }
 article,
 aside,

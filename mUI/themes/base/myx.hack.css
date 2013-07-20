@@ -1,0 +1,8 @@
+﻿body
+{
+    behavior: url("../../themes/hack/csshover.htc");
+}
+.radius
+{
+    behavior: url(../../themes/hack/ie-css3.htc);
+}

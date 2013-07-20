@@ -2,10 +2,7 @@
 {
     /* http://www.communitymx.com/content/article.cfm?cid=FAF76&print=true */
     font-size: 100.01%;
-    /**normalize: 
-     * Prevent system color scheme's background color being used in 
-     * Firefox, IE and Opera.
-    **/
+    /* normalize: Prevent system color scheme's background color being used in Firefox, IE and Opera. */
     background: #fff;
 }
 body
@@ -15,30 +12,45 @@ body
 }
 body, input, select, textarea, h1, h2, h3, h4, h5, h6
 {
-    font-size: 100%; 
-    /* http://www.cnblogs.com/ruxpinsp1/archive/2008/06/26/font-in-front-end-development-4.html */
+    font-size: 100%;
+    /* http://www.cnblogs.com/ruxpinsp1/archive/2008/06/26/font-in-front-end-development-4.html/ */
     font-family: Arial, Helvetica, simsun, sans-serif;
-    color: #222;
+    /* Declaring A Style As !Important */
+    /* http://designfestival.com/8-css-properties-designers-cant-live-without/ */
+    color: #222 !Important;
 }
 h1, h2, h3, h4, h5, h6
 {
     font-weight: normal;
+    letter-spacing: 1px;
+    /*  voodoo to enable ligatures and kerning https://developer.mozilla.org/en-US/docs/CSS/text-rendering/ */
+    text-rendering: optimizeLegibility;
 }
 h1
 {
-    letter-spacing: 1px;
     font-size: 2em;
 }
 h2
 {
-    letter-spacing: 1px;
-    font-size: 1.5em;
+    font-size: 1.8em;
 }
 h3
 {
+    font-size: 1.6em;
+}
+h4
+{
+    font-size: 1.4em;
+}
+h5
+{
+    font-size: 1.2em;
+}
+h6
+{
     font-size: 1em;
 }
-body, h1, h2, h3, h4, ul, ol
+body, h1, h2, h3, h4, h5, h6, ul, ol
 {
     margin: 0;
     padding: 0;
@@ -49,15 +61,21 @@ ul, ol
 }
 li
 {
-	text-overflow:ellipsis; 
-	white-space:nowrap; 
-	overflow:hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+dt
+{
+    font-weight: bold;
 }
 img
 {
     border: 0;
     /* normalize: Improve image quality when scaled in IE 7. */
     -ms-interpolation-mode: bicubic;
+    /* RWD: ensures that the image does not scale larger than its actual size */
+    max-width: 100%;
 }
 input, select, img
 {
@@ -67,7 +85,7 @@ input, select, img
 {
     /* 避免IE,Firefox和Opera下input[type=text]和textarea背景继承系统颜色设置 */
     background: #fff;
-    border:1px solid #aaa;
+    border: 1px solid #aaa;
 }
 table
 {
@@ -76,8 +94,16 @@ table
 }
 table th, td
 {
-    border: 1px solid #555;
+    border: 1px solid #999;
     padding: 5px;
+}
+tbody tr:nth-of-type(odd)
+{
+    background-color: #F5F5F5;
+}
+tbody tr:hover
+{
+    background-color: #E5E5E5;
 }
 a
 {
@@ -86,8 +112,7 @@ a
 }
 a:hover
 {
-    color: red;
-    border-bottom: 1px dashed #619bd5;
+    text-decoration: none;
 }
 a.external
 {
@@ -98,17 +123,19 @@ a, select, button, .button, .pointer
 {
     cursor: pointer;
 }
-.button:hover 
-{
-    color: White;
-    border-bottom: none;
-}
 /* normalize */
-html, .disabled {
+html, .disabled
+{
     cursor: default;
 }
-a:focus {
+a:focus
+{
     outline: thin dotted;
+}
+form label, input[type="text"], span
+{
+    display: block;
+    margin: 5px;
 }
 fieldset
 {
@@ -116,21 +143,28 @@ fieldset
     margin: 0 2px;
     padding: 0.35em 0.625em 0.75em;
 }
-legend {
-    border: 0; /* Correct color not being inherited in IE 6/7/8/9. */
+legend
+{
     padding: 0;
     white-space: normal; /* Correct text not wrapping in Firefox 3. */
-    *margin-left: -7px; /* Correct alignment displayed oddly in IE 6/7. */
-}
-textarea 
-{
-    /* boilerplate */
-    resize: vertical;
-    /* Improve readability and alignment in all browsers. */
-    vertical-align: top;
+    *margin-left: -7px;/* Correct alignment displayed oddly in IE 6/7. */
+    /* RockyMyx */
+    width: 100%;
+    display: block;
+    font-size: 1.5em;
+    line-height: 2;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #E5E5E5;
 }
 /* boilerplate */
-hr {
+textarea
+{
+    /* Improve readability and alignment in all browsers. */
+    resize: vertical;
+    vertical-align: top;
+}
+hr
+{
     display: block;
     height: 1px;
     border: 0;
@@ -138,14 +172,63 @@ hr {
     margin: 1em 0;
     padding: 0;
 }
-/* Hide from both screenreaders and browsers: h5bp.com/u */
 .hidden
 {
+    /* Hide from both screenreaders and browsers: h5bp.com/u */
     display: none !important;
     visibility: hidden;
 }
-/* Hide visually and from screenreaders, but maintain layout */
-.invisible 
+.invisible
 {
+    /* Hide visually and from screenreaders, but maintain layout */
     visibility: hidden;
+}
+/* Bootstrap */
+.warning
+{
+    color: #c09853;
+}
+a.warning:hover, a.warning:focus
+{
+    color: #a47e3c;
+}
+.error
+{
+    color: #b94a48;
+}
+a.error:hover, a.error:focus
+{
+    color: #953b39;
+}
+.info
+{
+    color: #3a87ad;
+}
+a.info:hover, a.info:focus
+{
+    color: #2d6987;
+}
+.success
+{
+    color: #468847;
+}
+a.success:hover, a.success:focus
+{
+    color: #356635;
+}
+.table tbody tr.success > td
+{
+    background-color: #dff0d8;
+}
+.table tbody tr.error > td
+{
+    background-color: #f2dede;
+}
+.table tbody tr.warning > td
+{
+    background-color: #fcf8e3;
+}
+.table tbody tr.info > td
+{
+    background-color: #d9edf7;
 }
