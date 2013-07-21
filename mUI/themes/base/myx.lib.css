@@ -175,7 +175,7 @@
 .bg-green{background-color:Green;}
 .bg-gray{background-color: Gray;}
 /* div test*/
-.div { width:100px; height:100px; border:1px solid red; }
+.div-test { width:100px; height:100px; border:1px solid red; }
 /* safe color */
 .c0{color:#000;}
 .c3{color:#333;}

@@ -253,7 +253,7 @@ a:hover
 {
     text-decoration: none;
 }
-a[rel~="external"], a[href^="http://"]
+a.external, a[rel~="external"], a[href^="http://"]
 {
     padding-right: 16px;
     background: transparent url("../blue/images/link_external.png") 99% 40% no-repeat;
@@ -268,7 +268,7 @@ a[title]:hover:after
     padding: 4px 8px;
     color: #333;
     position: absolute;
-    left: 0;
+    left: 40%;
     top: 150%;
     white-space: nowrap;
     z-index: 20px;
