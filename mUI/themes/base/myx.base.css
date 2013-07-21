@@ -137,6 +137,11 @@ form label, input[type="text"], span
     display: block;
     margin: 5px;
 }
+form input[type=password]
+{
+    /* RockyMyx: 解决在Chrome、FireFox、Opera、Safari下password文本域和text错位的问题 */
+    margin-left: 6px;
+}
 fieldset
 {
     border: 0;
